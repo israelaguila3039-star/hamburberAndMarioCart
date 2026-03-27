@@ -1,21 +1,13 @@
-import { $ } from '@wdio/globals'
-import uRL from './theEndpointAtTheTop.js';
+import { $ } from '@wdio/globals';
+import endLogin from './theEndWithAPoint.js';
 
-/*The usernames in the 2d array below:
-*Valid usernames, usernames without '_', usernames that are all capitalized, usernames with a space instead of a '_', usernames where each first letter of a word is capitalized
-*/
-export const allUsernames = [
-    ["standard_user", "locked_out_user", "problem_user", "performance_glitch_user", "error_user", "visual_user"],
-    ["standarduser", "lockedoutuser", "problemuser", "performanceglitchuser", "erroruser", "visualuser"],
-    ["STANDARD_USER", "LOCKED_OUT_USER", "PROBLEM_USER", "PERFORMANCE_GLITCH_USER", "ERROR_USER", "VISUAL_USER"],
-    ["standard user", "locked out user", "problem user", "performance glitch user", "error user", "visual user"],
-    ["Standard_User", "Locked_Out_User", "Problem_User", "Performance_Glitch_User", "Error_User", "Visual_User"]
-];
-
+//All the usernames that can be used and the password
+export const allUsernames = ["standard_user", "problem_user", "performance_glitch_user", "error_user", "visual_user"];
+export const password = "secret_sauce";
 
 
 //Selectors for the logging in tests
-class thePlaceILogIn extends uRL {
+class loggingIn extends endLogin {
 
     get inputUsername () {
         return $('#user-name');
@@ -36,4 +28,6 @@ class thePlaceILogIn extends uRL {
     }
 }
 
-export default new thePlaceILogIn();
+
+
+export default new loggingIn();
