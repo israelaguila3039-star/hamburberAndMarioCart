@@ -1,12 +1,9 @@
 import { $ } from '@wdio/globals';
 import endLogin from './theEndWithAPoint.js';
 
-//All the usernames that can be used and the password
-export const allUsernames = ["standard_user", "problem_user", "performance_glitch_user", "error_user", "visual_user"];
-export const password = "secret_sauce";
 
 
-//Selectors for the logging in tests
+//Selectors & values for the logging in
 class loggingIn extends endLogin {
 
     get inputUsername () {
@@ -19,6 +16,14 @@ class loggingIn extends endLogin {
 
     get btnSubmit () {
         return $('#login-button');
+    }
+
+    get password () {
+        return "secret_sauce";
+    }
+
+    get allUsernames () {
+        return ["standard_user", "problem_user", "performance_glitch_user", "error_user", "visual_user"];
     }
 
     async login (username, password) {
