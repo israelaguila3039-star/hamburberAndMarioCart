@@ -9,8 +9,9 @@ class hamburberNoCheese extends endLogin {
         return $('#react-burger-menu-btn');
     }
 
-    get hamburberButtons() {}
-
+    get hamburberButtons() {
+        return [$('#inventory_sidebar_link'), $('#about_sidebar_link'), $('#reset_sidebar_link'), $('#logout_sidebar_link')]
+    }
 }
 
 export default new hamburberNoCheese();
