@@ -4,7 +4,14 @@ import endLogin from './theEndWithAPoint.js';
 
 class shopCart extends endLogin {
 
-    get 
+    get cartButton() {
+        return $('#shopping_cart_container');
+    }
+
+    get checkoutButton() {
+        return $('button[class="btn btn_secondary back btn_medium"]');
+    }
+
 }
 
 export default new shopCart();
