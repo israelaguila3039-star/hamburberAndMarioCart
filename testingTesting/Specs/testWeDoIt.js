@@ -9,12 +9,11 @@ import shopCart from '../objects&Stuff/shoppingCart.js'
 async function logIn(username, password) {
     loggingIn.open();
     await loggingIn.login(username, password);
-    console.log(`Logged in as ${username}`);
 }
 
 
 
-//Hamburger open menu and login
+//Hamburger open menu and login - DONE
 //Base for each hamburger menu test
 // loggingIn.allUsernames.forEach((username) => {
 //     it(`should do something after logging in as ${username}`, async () => {
@@ -31,7 +30,7 @@ async function logIn(username, password) {
 //     });
 // });
 
-//Click each link/button for hamburger menu
+//Click each link/button for hamburger menu - IN PROGRESS
 // loggingIn.allUsernames.forEach((username) => {
 //     it(`should do something after logging in as ${username}`, async () => {
 //         await logIn(username, loggingIn.password);
@@ -56,34 +55,101 @@ async function logIn(username, password) {
 //                     await expect($(passers.pass.appLogo)).toBeExisting();
 //                 }
 //             }
+//             console.log(`Logged in as ${username}`);
 //         }
 //     });
 // });
 
-//Hamburger menu clicking outside of menu
+//Hamburger menu clicking outside of menu - DONE
+// loggingIn.allUsernames.forEach((username) => {
+//     it(`should do something after logging in as ${username}`, async () => {
+//         await logIn(username, loggingIn.password);
+//         for (const path of hamburberNoCheese.paths) {
+//             await hamburberNoCheese.open(path);
+//             await hamburberNoCheese.menuButton.click();
+//             await hamburberNoCheese.body.click();
+//             //Check if menu closed (It doesn't)
+//             await expect($(passers.pass.hamburberOpen)).toBeExisting();
+//         }
+//         console.log(`Logged in as ${username}`);
+//     });
+// });
 
+//Hamburger menu clicking link outside of menu - DONE
+// loggingIn.allUsernames.forEach((username) => {
+//     it(`should do something after logging in as ${username}`, async () => {
+//         await logIn(username, loggingIn.password);
+//         for (const path of hamburberNoCheese.paths) {
+//             await hamburberNoCheese.open(path);
+//             await hamburberNoCheese.menuButton.click();
+//             if (path === 'https://www.saucedemo.com/cart.html') {
+//                 await shopCart.checkoutButton.click();
+//                 await expect($(passers.pass.checkoutPage))
+//             } else {
+//                 await shopCart.cartButton.click();
+//                 await expect($(passers.pass.cartPage)).toBeExisting();
+//             }
+//         }
+//         console.log(`Logged in as ${username}`);
+//     });
+// });
 
-//Hamburger menu clicking link outside of menu
+//Shopping cart page button - DONE
+// loggingIn.allUsernames.forEach((username) => {
+//     it(`should do something after logging in as ${username}`, async () => {
+//         await logIn(username, loggingIn.password);
+//         for (const path of hamburberNoCheese.paths) {
+//             await shopCart.open(path);
+//             await shopCart.cartButton.click();
+//             await expect($(passers.pass.cartPage)).toBeExisting();
+//         }
+//         console.log(`Logged in as ${username}`);
+//     });
+// });
 
+//Checkout with no items - DONE
+// loggingIn.allUsernames.forEach((username) => {
+//     it(`should do something after logging in as ${username}`, async () => {
+//         await logIn(username, loggingIn.password);
+//         await shopCart.open(shopCart.paths[1]);
+//         await shopCart.checkoutButton.click();
+//         await expect($(passers.pass.checkoutPage)).toBeExisting();
+//         console.log(`Logged in as ${username}`);
+//     });
+// });
 
-//Shopping cart page button
+//Checkout & remove with each individual item selected
 loggingIn.allUsernames.forEach((username) => {
     it(`should do something after logging in as ${username}`, async () => {
         await logIn(username, loggingIn.password);
-        for (const path of hamburberNoCheese.paths) {
-            await shopCart.open(path);
-            await shopCart.cartButton.click();
-            await expect($x(passers.pass.cartPage)).toBeExisting();
-        }
-    });
-});
-
-//Checkout with no items
-loggingIn.allUsernames.forEach((username) => {
-    it(`should do something after logging in as ${username}`, async () => {
-        await logIn(username, loggingIn.password);
-        await shopCart.open(shopCart.paths[1]);
-        await shopCart.checkoutButton.click();
-        await expect($x(passers.pass.checkoutPage)).toBeExisting();
+        if (username != 'problem_user') {
+            for (let i = 0; i < shopCart.items.length; i++) {
+                await shopCart.open(shopCart.paths[0]);
+                await shopCart.items[i].click();
+                await expect($(passers.pass.cartBadge)).toBeExisting();
+                await shopCart.cartButton.click();
+                await expect($(passers.pass.cartPage)).toBeExisting();
+                await shopCart.checkoutButton.click();
+                await expect($(passers.pass.checkoutPage)).toBeExisting();
+                await shopCart.cartButton.click();
+                await shopCart.removeItems[i].click();
+                await expect($(passers.pass.cartBadge)).not.toBeDisplayed();
+                }
+        } else {
+            for (let i = 0; i < shopCart.items.length; i++) {
+                if (i === 0 || i === 1 || i === 4)
+                    await shopCart.open(shopCart.paths[0]);
+                    await shopCart.items[i].click();
+                    await expect($(passers.pass.cartBadge)).toBeExisting();
+                    await shopCart.cartButton.click();
+                    await expect($(passers.pass.cartPage)).toBeExisting();
+                    await shopCart.checkoutButton.click();
+                    await expect($(passers.pass.checkoutPage)).toBeExisting();
+                    await shopCart.cartButton.click();
+                    await shopCart.removeItems[i].click();
+                    await expect($(passers.pass.cartBadge)).not.toBeDisplayed();
+                }
+            }
+        console.log(`Logged in as ${username}`);
     });
 });

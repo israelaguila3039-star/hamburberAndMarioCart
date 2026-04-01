@@ -10,8 +10,9 @@ class passers {
             hamburberOpen: '[style="position: fixed; right: inherit; z-index: 1100; width: 300px; height: 100%; transition: 0.5s;"]',
             about: 'h1',
             loginLogo: '[class="login_logo"]',
-            hamburgerClosed: '[style="position: fixed; right: inherit; z-index: 1100; width: 300px; height: 100%; transition: 0.5s; transform: translate3d(-100%, 0px, 0px);"]',
-            checkoutPage: '//span[text()="Checkout: Your Information"]'
+            hamburgerClosed: '//*[@id="menu_button_container"]/div/div[2]',
+            checkoutPage: '//span[text()="Checkout: Your Information"]',
+            cartBadge: '[class=shopping_cart_badge]'
         }
     }
 
