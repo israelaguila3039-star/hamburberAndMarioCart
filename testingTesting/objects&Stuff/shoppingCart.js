@@ -12,15 +12,20 @@ class shopCart extends endLogin {
         return $('#checkout');
     }
 
+    get continueShoppingButton() {
+        return $('#continue-shopping')
+    }
+
     get removeItems(){
         return [$('#remove-sauce-labs-backpack'), $('#remove-sauce-labs-bike-light'), $('#remove-sauce-labs-bolt-t-shirt'),
-             $('#remove-sauce-labs-fleece-jacket'), $('#remove-sauce-labs-onesie'), $('#remove-test.allthethings()-t-shirt-(red)')];
+             $('#remove-sauce-labs-fleece-jacket'), $('#remove-sauce-labs-onesie'), $('//button[@id="remove-test.allthethings()-t-shirt-(red)"]')];
     }
 
     get items() {
-        return [$('#add-to-cart-sauce-labs-backpack'), $('#add-to-cart-sauce-labs-bike-light'), $('#add-to-cart-sauce-labs-bolt-t-shirt'),
-             $('#add-to-cart-sauce-labs-fleece-jacket'), $('#add-to-cart-sauce-labs-onesie'), $('#add-to-cart-test.allthethings()-t-shirt-(red)')];
+        return [$('//button[@id="add-to-cart-sauce-labs-backpack"]'), $('//button[@id="add-to-cart-sauce-labs-bike-light"]'), $('//button[@id="add-to-cart-sauce-labs-bolt-t-shirt"]'),
+             $('//button[@id="add-to-cart-sauce-labs-fleece-jacket"]'), $('//button[@id="add-to-cart-sauce-labs-onesie"]'), $('//button[@id="add-to-cart-test.allthethings()-t-shirt-(red)"]')];
     }
+
 }
 
 export default new shopCart();

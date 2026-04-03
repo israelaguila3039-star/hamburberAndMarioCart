@@ -3,6 +3,8 @@ import endLogin from './theEndWithAPoint.js';
 
 
 
+
+
 //Selectors & values for the logging in
 class loggingIn extends endLogin {
 
@@ -21,7 +23,7 @@ class loggingIn extends endLogin {
     get password () {
         return "secret_sauce";
     }
-
+    
     get allUsernames () {
         return ["standard_user", "problem_user", "performance_glitch_user", "error_user", "visual_user"];
     }
