@@ -26,6 +26,11 @@ class shopCart extends endLogin {
              $('//button[@id="add-to-cart-sauce-labs-fleece-jacket"]'), $('//button[@id="add-to-cart-sauce-labs-onesie"]'), $('//button[@id="add-to-cart-test.allthethings()-t-shirt-(red)"]')];
     }
 
+    get itemPages() {
+        return [$('//div[text()="Sauce Labs Backpack"]'), $('//div[text()="Sauce Labs Bike Light"]'), $('//div[text()="Sauce Labs Bolt T-Shirt"]'), 
+            $('//div[text()="Sauce Labs Fleece Jacket"]'), $('//div[text()="Sauce Labs Onesie"]'), $('//div[text()="Test.allTheThings() T-Shirt (Red)"]')]
+    }
+
 }
 
 export default new shopCart();

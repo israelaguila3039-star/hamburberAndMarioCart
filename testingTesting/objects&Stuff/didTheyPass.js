@@ -8,7 +8,7 @@ class passers {
             cartPage: '//span[text()="Your Cart"]',
             appLogo: '[class="app_logo"]',
             hamburberOpen: '[style="position: fixed; right: inherit; z-index: 1100; width: 300px; height: 100%; transition: 0.5s;"]',
-            about: '//h1[contains(., "World") and contains(., "Full-Lifecycle")]',
+            about: '//h1[@class="MuiTypography-root MuiTypography-h1 css-hqwp3n"]',
             loginLogo: '[class="login_logo"]',
             hamburgerClosed: '//*[@id="menu_button_container"]/div/div[2]',
             checkoutPage: '//span[text()="Checkout: Your Information"]',
